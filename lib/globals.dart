@@ -20,4 +20,4 @@ TextStyle fontSize16 = const TextStyle(fontSize: 16);
 bool IS_ONLINE = false;
 var BASE_URL = IS_ONLINE
     ? 'http://bucapstoneportal.mooo.com' // freedns
-    : 'http://10.0.2.2/flutter_api/bu_portal2'; // local
+    : 'http://10.0.2.2/bu_portal_api'; // local
