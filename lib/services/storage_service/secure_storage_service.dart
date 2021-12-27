@@ -108,5 +108,6 @@ class SecureStorage extends StorageService {
     await _storage.delete(key: _academicTermsKey);
     await _storage.delete(key: _gradesKey);
     await _storage.delete(key: _schedulesKey);
+    await _storage.delete(key: _yearTermsKey);
   }
 }
