@@ -16,20 +16,6 @@ SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
---
--- Name: adminpack; Type: EXTENSION; Schema: -; Owner: -
---
-
-CREATE EXTENSION IF NOT EXISTS adminpack WITH SCHEMA pg_catalog;
-
-
---
--- Name: EXTENSION adminpack; Type: COMMENT; Schema: -; Owner: 
---
-
-COMMENT ON EXTENSION adminpack IS 'administrative functions for PostgreSQL';
-
-
 SET default_tablespace = '';
 
 SET default_table_access_method = heap;
@@ -5970,6 +5956,49 @@ COPY public.class_event (id, class_event, active, is_active, created_on, created
 --
 
 COPY public.class_schedule (id, course_schedule_id, class_event_id, schedule_name, room_id, remarks, no_of_units, faculty_in_charge_id, active, is_active, created_on, created_by, modified_on, modified_by, day, min_students, max_students, "time", start_time, end_time, elective_course_title, is_elective, lec_units, lab_units) FROM stdin;
+1	13	\N	\N	\N	\N	\N	1	\N	\N	\N	\N	\N	\N	2	\N	\N	01:00 PM - 02:30 PM	\N	\N	\N	F	\N	\N
+2	13	\N	\N	\N	\N	\N	1	\N	\N	\N	\N	\N	\N	4	\N	\N	01:00 PM - 02:30 PM	\N	\N	\N	F	\N	\N
+3	14	\N	\N	\N	\N	\N	2	\N	\N	\N	\N	\N	\N	2	\N	\N	07:30 AM - 09:00 AM	\N	\N	\N	F	\N	\N
+4	14	\N	\N	\N	\N	\N	2	\N	\N	\N	\N	\N	\N	4	\N	\N	07:30 AM - 09:00 AM	\N	\N	\N	F	\N	\N
+6	15	\N	\N	\N	\N	\N	3	\N	\N	\N	\N	\N	\N	1	\N	\N	09:00 AM- 12:00 PM	\N	\N	\N	F	\N	\N
+7	15	\N	\N	\N	\N	\N	3	\N	\N	\N	\N	\N	\N	3	\N	\N	09:00 AM- 12:00 PM	\N	\N	\N	F	\N	\N
+8	15	\N	\N	\N	\N	\N	3	\N	\N	\N	\N	\N	\N	5	\N	\N	10:00 AM- 12:00 PM	\N	\N	\N	F	\N	\N
+9	16	\N	\N	\N	\N	\N	4	\N	\N	\N	\N	\N	\N	2	\N	\N	02:30 PM - 04: 00 PM	\N	\N	\N	F	\N	\N
+10	16	\N	\N	\N	\N	\N	4	\N	\N	\N	\N	\N	\N	4	\N	\N	02:30 PM - 04: 00 PM	\N	\N	\N	F	\N	\N
+11	17	\N	\N	\N	\N	\N	5	\N	\N	\N	\N	\N	\N	1	\N	\N	07:30 AM - 09:00 AM	\N	\N	\N	F	\N	\N
+12	17	\N	\N	\N	\N	\N	5	\N	\N	\N	\N	\N	\N	3	\N	\N	07:30 AM - 09:00 AM	\N	\N	\N	F	\N	\N
+13	18	\N	\N	\N	\N	\N	6	\N	\N	\N	\N	\N	\N	6	\N	\N	01:00 PM - 04:00 PM	\N	\N	\N	F	\N	\N
+14	19	\N	\N	\N	\N	\N	7	\N	\N	\N	\N	\N	\N	5	\N	\N	03:00 PM - 05:00 PM	\N	\N	\N	F	\N	\N
+15	20	\N	\N	\N	\N	\N	8	\N	\N	\N	\N	\N	\N	1	\N	\N	01:00 PM - 04:00 PM	\N	\N	\N	F	\N	\N
+16	20	\N	\N	\N	\N	\N	8	\N	\N	\N	\N	\N	\N	3	\N	\N	01:00 PM  -04:00 PM	\N	\N	\N	F	\N	\N
+17	20	\N	\N	\N	\N	\N	8	\N	\N	\N	\N	\N	\N	5	\N	\N	03:00 PM - 05:00 PM	\N	\N	\N	F	\N	\N
+18	1	\N	\N	\N	\N	\N	9	\N	\N	\N	\N	\N	\N	2	\N	\N	07:30 AM - 09:00 AM	\N	\N	\N	F	\N	\N
+19	1	\N	\N	\N	\N	\N	9	\N	\N	\N	\N	\N	\N	4	\N	\N	07:30 AM - 09:00 AM	\N	\N	\N	F	\N	\N
+20	2	\N	\N	\N	\N	\N	10	\N	\N	\N	\N	\N	\N	1	\N	\N	08:00 AM - 09:00 AM	\N	\N	\N	F	\N	\N
+21	2	\N	\N	\N	\N	\N	10	\N	\N	\N	\N	\N	\N	5	\N	\N	04:00 PM - 07:00 PM	\N	\N	\N	F	\N	\N
+22	3	\N	\N	\N	\N	\N	11	\N	\N	\N	\N	\N	\N	1	\N	\N	01:00 PM - 03:00 PM	\N	\N	\N	F	\N	\N
+23	3	\N	\N	\N	\N	\N	11	\N	\N	\N	\N	\N	\N	2	\N	\N	01:00 PM - 04:00 PM	\N	\N	\N	F	\N	\N
+24	3	\N	\N	\N	\N	\N	11	\N	\N	\N	\N	\N	\N	3	\N	\N	01:00 PM - 04:00 PM	\N	\N	\N	F	\N	\N
+25	4	\N	\N	\N	\N	\N	12	\N	\N	\N	\N	\N	\N	3	\N	\N	08:00 AM - 10:00 AM	\N	\N	\N	F	\N	\N
+26	4	\N	\N	\N	\N	\N	12	\N	\N	\N	\N	\N	\N	1	\N	\N	09:00 AM - 12:00 PM	\N	\N	\N	F	\N	\N
+27	4	\N	\N	\N	\N	\N	12	\N	\N	\N	\N	\N	\N	5	\N	\N	09:00 AM - 12:00 PM	\N	\N	\N	F	\N	\N
+28	5	\N	\N	\N	\N	\N	13	\N	\N	\N	\N	\N	\N	2	\N	\N	09:00 AM - 12:00 PM	\N	\N	\N	F	\N	\N
+29	5	\N	\N	\N	\N	\N	13	\N	\N	\N	\N	\N	\N	3	\N	\N	10:00 AM - 12:00 PM	\N	\N	\N	F	\N	\N
+30	5	\N	\N	\N	\N	\N	13	\N	\N	\N	\N	\N	\N	4	\N	\N	09:00 AM - 12:00 PM	\N	\N	\N	F	\N	\N
+31	6	\N	\N	\N	\N	\N	14	\N	\N	\N	\N	\N	\N	6	\N	\N	09:00 AM - 12:00 PM	\N	\N	\N	F	\N	\N
+32	7	\N	\N	\N	\N	\N	15	\N	\N	\N	\N	\N	\N	2	\N	\N	04:00 PM - 07:00 PM	\N	\N	\N	F	\N	\N
+33	7	\N	\N	\N	\N	\N	15	\N	\N	\N	\N	\N	\N	3	\N	\N	04:00 PM - 06:00 PM	\N	\N	\N	F	\N	\N
+34	7	\N	\N	\N	\N	\N	15	\N	\N	\N	\N	\N	\N	4	\N	\N	04:00 PM - 07:00 PM	\N	\N	\N	F	\N	\N
+35	8	\N	\N	\N	\N	\N	16	\N	\N	\N	\N	\N	\N	1	\N	\N	09:00 AM - 12:00 PM	\N	\N	\N	F	\N	\N
+36	8	\N	\N	\N	\N	\N	16	\N	\N	\N	\N	\N	\N	2	\N	\N	08:00 AM - 10:00 AM	\N	\N	\N	F	\N	\N
+37	8	\N	\N	\N	\N	\N	16	\N	\N	\N	\N	\N	\N	3	\N	\N	09:00 AM - 12:00 PM	\N	\N	\N	F	\N	\N
+38	9	\N	\N	\N	\N	\N	17	\N	\N	\N	\N	\N	\N	2	\N	\N	04:00 PM - 08:30 PM	\N	\N	\N	F	\N	\N
+39	9	\N	\N	\N	\N	\N	17	\N	\N	\N	\N	\N	\N	4	\N	\N	04:00 PM - 08:30 PM	\N	\N	\N	F	\N	\N
+40	10	\N	\N	\N	\N	\N	18	\N	\N	\N	\N	\N	\N	3	\N	\N	05:00 PM - 08:00 PM	\N	\N	\N	F	\N	\N
+41	11	\N	\N	\N	\N	\N	19	\N	\N	\N	\N	\N	\N	1	\N	\N	07:30 AM - 09:00 AM	\N	\N	\N	F	\N	\N
+42	11	\N	\N	\N	\N	\N	19	\N	\N	\N	\N	\N	\N	5	\N	\N	07:30 AM - 09:00 AM	\N	\N	\N	F	\N	\N
+43	12	\N	\N	\N	\N	\N	20	\N	\N	\N	\N	\N	\N	6	\N	\N	07:30 AM - 09:00 AM	\N	\N	\N	F	\N	\N
+44	12	\N	\N	\N	\N	\N	20	\N	\N	\N	\N	\N	\N	6	\N	\N	10:30 AM - 12:00 PM	\N	\N	\N	F	\N	\N
 \.
 
 
@@ -6018,9 +6047,12 @@ COPY public.cor_schedule (id, student_id, course_id, year_block, days, times, fa
 --
 
 COPY public.cor_student_registration (id, stud_registration_number, stud_id, stud_num, stud_lname, stud_fname, stud_mname, dateofbirth, gender, age, curriculum_id, curriculum_code, program_id, program_code, college_id, college_name, program_major_id, program_major, scholarship_id, scholarship_codestring, school_year, term, year_term, year_term_description, block, actual_payment, outstanding_balance, additional_balance, academicterm_id, primary_refno, transaction_date, cor_signatory_id, cor_signatory, regular, active, is_active, created_on, created_by, modified_on, modified_by) FROM stdin;
-1	215165498713	\N	1985-XD-999112	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2018-2019	\N	\N	1st Semester	\N	\N	\N	\N	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-2	215164684665	\N	1985-XD-999112	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2020-2021	\N	\N	2nd Semester	\N	\N	\N	\N	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-3	215164469879	\N	1985-XD-999112	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2021-2022	\N	\N	1st Semester	\N	\N	\N	\N	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+1	215165498713	\N	2018-CS-100199	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2018-2019	\N	\N	1st Semester	\N	\N	\N	\N	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+2	215164684665	\N	2018-CS-100199	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2020-2021	\N	\N	2nd Semester	\N	\N	\N	\N	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+3	215164469879	\N	2018-CS-100199	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2021-2022	\N	\N	1st Semester	\N	\N	\N	\N	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+4	215112368713	\N	2018-CS-100173	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2018-2019	\N	\N	1st Semester	\N	\N	\N	\N	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+5	215142664665	\N	2018-CS-100173	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2020-2021	\N	\N	2nd Semester	\N	\N	\N	\N	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+6	215154679879	\N	2018-CS-100173	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2021-2022	\N	\N	1st Semester	\N	\N	\N	\N	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 \.
 
 
@@ -6388,8 +6420,6 @@ COPY public.ref_academic_term (id, school_year, semester, start_ay, end_ay, acti
 1	2018-2019	1st Semester	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 2	2020-2021	2nd Semester	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 3	2021-2022	1st Semester	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-4	2021-2022	2nd Semester	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-5	2022-2023	1st Semester	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 \.
 
 
@@ -6502,9 +6532,9 @@ COPY public.ref_shifter_transferee (id, student_id, academic_term_id, department
 --
 
 COPY public.ref_year_term (id, year_level, year_level_description, year_term_description, remarks, active, is_active, created_on, created_by, modified_on, modified_by, semester, semester_code, educational_level, chronological_order) FROM stdin;
-3	4	Fourth Year	Fourth Year - First Semester	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 1	1	First Year	First Year - First Semester	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 2	3	Third Year	Third Year - Second Semester	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+3	4	Fourth Year	Fourth Year - First Semester	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 \.
 
 
@@ -6657,11 +6687,8 @@ COPY public.signatories (id, last_name, first_name, middle_initial, "position", 
 --
 
 COPY public.student (id, stud_lname, stud_fname, stud_mname, dateofbirth, college_id, active, userlogin_id, curriculum_id, new_curriculum_id, program_id, is_active, created_on, created_by, modified_on, modified_by, stud_yearlevel, old_stud_num, stud_mi, program_major_id, stud_num, stud_code, stud_password, year_level, email_address, department_program_id, gender, academic_term_id, regular, default_password, monthly_family_income_id, stud_degree, stud_email, stud_yearoflastschool, stud_lrn, stud_hs_gwa) FROM stdin;
-1	alberto	kenneth	zamudio	2000-05-20	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	\N	z	\N	2018-CS-100199	\N	password	\N	\N	\N	male	\N	\N	\N	\N	\N	kz.a@bicol-u.edu.ph	\N	280461798di-ko-alam	\N
-2	lmao	xdxd	lol	1985-11-12	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	\N	l	\N	1985-XD-999112	\N	passwew	\N	\N	\N	female	\N	\N	\N	\N	\N	xl.l@bicol-u.edu.ph	\N	417481dikodinalam	\N
-3	ellis	judy 	azel	1984-01-16	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	\N	a	\N	2000-AA-000000	\N	passyow	\N	\N	\N	female	\N	\N	\N	\N	\N	zachary_bay@gmail.com	\N	4485559025960486	\N
-4	tyloo	first second third	woohoo	2001-08-18	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	\N	w	\N	2001-QQ-000000	\N	passgee	\N	\N	\N	male	\N	\N	\N	\N	\N	fstw.t@gmail.com	\N	8234798123q47as20	\N
-5	rap	jerome nimo	easy	1968-05-20	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	5	\N	e	\N	1999-QQ-000001	\N	passpass	\N	\N	\N	male	\N	\N	\N	\N	\N	jeroni@mo.mww	\N	41sa21124141aq1	\N
+1	Alberto	Kenneth	Zamudio	2000-05-20	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	\N	Z	\N	2018-CS-100199	\N	pass100199	4	kennethzamudio.alberto@bicol-u.edu.ph	\N	Male	\N	\N	\N	\N	\N	kennethzamudio.alberto@bicol-u.edu.ph	\N	8906582154692	\N
+2	Mayor	Ian Andrew	Seva	1999-11-30	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	\N	S	\N	2018-CS-100173	\N	pass100173	4	ianandrewseva.mayor@bicol-u.edu.ph	\N	Male	\N	\N	\N	\N	\N	ianandrewseva.mayor@bicol-u.edu.ph	\N	5412789532157	\N
 \.
 
 
@@ -6694,6 +6721,8 @@ COPY public.student_monthly_family_income (id, monthly_income, is_active, create
 --
 
 COPY public.student_profile (id, student_id, studp_suffix, studp_maiden_name, studp_place_of_birth, studp_civil_status, studp_nationality, studp_height_ft, studp_weight_kg, studp_bloodtype, studp_current_houseno_street, studp_current_barangay, studp_current_town_city, studp_current_zipcode, studp_current_province, studp_permanent_houseno_street, studp_permanent_barangay, studp_permanent_town_city, studp_permanent_zipcode, studp_permanent_province, studp_mobile_no, studp_telephone_no, studp_bu_email_address, studp_alternate_email_address, studp_father_name, studp_father_birthdate, studp_father_occupation, studp_father_company, studp_father_company_address, studp_father_telephone_no, studp_father_mobile_no, studp_mother_name, studp_mother_birthdate, studp_mother_occupation, studp_mother_company, studp_mother_company_address, studp_mother_telephone_no, studp_mother_mobile_no, studp_num_brothers, studp_num_sisters, studp_guardian_name, studp_guardian_relationship, studp_guardian_houseno_street, studp_guardian_barangay, studp_guardian_town_city, studp_guardian_province, studp_guardian_zipcode, studp_guardian_occupation, studp_guardian_company, studp_guardian_company_address, studp_guardian_mobile_no, studp_guardian_telephone_no, studp_guardian_email_address, studp_emergency_contact_name, studp_emergency_contact_address, studp_emergency_mobile_no, studp_emergency_telephone_no, studp_elemschool_name, studp_elemschool_address, studp_elemschool_start_date, studp_elemschool_end_date, studp_elemschool_awards_honors, studp_highschool_name, studp_highschool_address, studp_highschool_start_date, studp_highschool_end_date, studp_highschool_awards_honors, studp_vocational_name, studp_vocational_address, studp_vocational_degree, studp_vocational_start_date, studp_vocational_end_date, studp_college_name, studp_college_address, studp_college_degree, studp_college_start_date, studp_college_end_date, studp_college_awards_honors, studp_masters_name, studp_masters_address, studp_masters_degree, studp_masters_start_date, studp_masters_end_date, studp_doctoral_name, studp_doctoral_address, studp_doctoral_degree, studp_doctoral_start_date, studp_doctoral_end_date, active, remarks, created_on, created_by, modified_on, modified_by, is_active, studp_date_of_birth) FROM stdin;
+2	2	\N	\N	Tagas, Albayyyyyyy	\N	Filipino	\N	\N	\N	#12, Purok 3	Brgy. Sain	Daraga	4501	Albay	\N	\N	\N	\N	\N	09879456587	\N	\N	mayorngalbay@yahoo.com	Father Name	\N	\N	\N	\N	\N	09565248752	Mother Name	\N	Secret	\N	\N	\N	09621547856	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+1	1	\N	\N	Virac, Catanduanesssss ssss sss	\N	Filipino	\N	\N	\N	#420, Purok 6	Brgy. Nasaan	Legazpi City	4500	Albay	\N	\N	\N	\N	\N	09123456789	\N	\N	myalternateemail@gmail.com	\N	\N	\N	\N	\N	\N	\N	Maureen Alberto	\N	Nurse	\N	\N	\N	09987654321	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 \.
 
 
@@ -6705,6 +6734,9 @@ COPY public.student_registration (id, student_no, account_fees_id, registration_
 1	1	\N	215165498713	\N	\N	\N	\N	\N	\N	\N	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 2	1	\N	215164684665	\N	\N	\N	\N	\N	\N	\N	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 3	1	\N	215164469879	\N	\N	\N	\N	\N	\N	\N	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+4	2	\N	215112368713	\N	\N	\N	\N	\N	\N	\N	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+5	2	\N	215142664665	\N	\N	\N	\N	\N	\N	\N	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+6	2	\N	215154679879	\N	\N	\N	\N	\N	\N	\N	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 \.
 
 
@@ -6753,6 +6785,46 @@ COPY public.studentuser_permission (id, group_id, name, table_name, record_id) F
 --
 
 COPY public.subject_list (id, course_schedule_id, student_id, year_term_id, encoded_by, active, isadditional, enrollment_id, ischanged, isdropped, isreplacement, isaddedcourse, transaction, drop_reason, academicterm_id, replaced_course_id, midterm_grade, tentative_grade, final_grade, note, remarks, is_active, created_on, created_by, modified_on, modified_by, student_registration_id, course_id, is_posted, date_posted) FROM stdin;
+1	13	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	\N	\N	\N	2.4	\N	\N	\N	\N	\N	\N	\N	1	13	t	\N
+2	14	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	\N	\N	\N	1.7	\N	\N	\N	\N	\N	\N	\N	1	14	t	\N
+3	15	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	\N	\N	\N	1.70	\N	\N	\N	\N	\N	\N	\N	1	15	t	\N
+4	16	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	\N	\N	\N	2.1	\N	\N	\N	\N	\N	\N	\N	1	16	t	\N
+5	17	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	\N	\N	\N	2.60	\N	\N	\N	\N	\N	\N	\N	1	17	t	\N
+6	18	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	\N	\N	\N	1.3	\N	\N	\N	\N	\N	\N	\N	1	18	t	\N
+7	19	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	\N	\N	\N	1.4	\N	\N	\N	\N	\N	\N	\N	1	19	t	\N
+8	20	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	\N	\N	\N	2.5	\N	\N	\N	\N	\N	\N	\N	1	20	t	\N
+9	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	\N	\N	\N	2.5	\N	\N	\N	\N	\N	\N	\N	2	1	t	\N
+10	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	\N	\N	\N	1.3	\N	\N	\N	\N	\N	\N	\N	2	2	t	\N
+11	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	\N	\N	\N	1.1	\N	\N	\N	\N	\N	\N	\N	2	3	t	\N
+12	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	\N	\N	\N	1.0	\N	\N	\N	\N	\N	\N	\N	2	4	t	\N
+13	5	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	\N	\N	\N	1.60	\N	\N	\N	\N	\N	\N	\N	2	5	t	\N
+14	6	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	\N	\N	\N	1.35	\N	\N	\N	\N	\N	\N	\N	2	6	t	\N
+15	7	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	\N	\N	\N	1.11	\N	\N	\N	\N	\N	\N	\N	2	7	t	\N
+16	8	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	\N	\N	\N	1.1	\N	\N	\N	\N	\N	\N	\N	3	8	t	\N
+17	9	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	\N	\N	\N	1.0	\N	\N	\N	\N	\N	\N	\N	3	9	t	\N
+18	10	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	\N	\N	\N	1.2	\N	\N	\N	\N	\N	\N	\N	3	10	t	\N
+19	11	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	\N	\N	\N	1.3	\N	\N	\N	\N	\N	\N	\N	3	11	t	\N
+20	12	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	\N	\N	\N	1.10	\N	\N	\N	\N	\N	\N	\N	3	12	f	\N
+21	13	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	\N	\N	\N	1.4	\N	\N	\N	\N	\N	\N	\N	4	13	t	\N
+22	14	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	\N	\N	\N	2.7	\N	\N	\N	\N	\N	\N	\N	4	14	t	\N
+23	15	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	\N	\N	\N	1.8	\N	\N	\N	\N	\N	\N	\N	4	15	t	\N
+24	16	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	\N	\N	\N	2.1	\N	\N	\N	\N	\N	\N	\N	4	16	t	\N
+25	17	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	\N	\N	\N	2.8	\N	\N	\N	\N	\N	\N	\N	4	17	t	\N
+26	18	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	\N	\N	\N	1.4	\N	\N	\N	\N	\N	\N	\N	4	18	t	\N
+27	19	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	\N	\N	\N	1.8	\N	\N	\N	\N	\N	\N	\N	4	19	t	\N
+28	20	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	\N	\N	\N	2.9	\N	\N	\N	\N	\N	\N	\N	4	20	t	\N
+29	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	\N	\N	\N	3.0	\N	\N	\N	\N	\N	\N	\N	5	1	t	\N
+30	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	\N	\N	\N	1.8	\N	\N	\N	\N	\N	\N	\N	5	2	t	\N
+31	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	\N	\N	\N	1.95	\N	\N	\N	\N	\N	\N	\N	5	3	t	\N
+32	4	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	\N	\N	\N	1.35	\N	\N	\N	\N	\N	\N	\N	5	4	t	\N
+33	5	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	\N	\N	\N	1.7	\N	\N	\N	\N	\N	\N	\N	5	5	t	\N
+34	6	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	\N	\N	\N	1.8	\N	\N	\N	\N	\N	\N	\N	5	6	t	\N
+35	7	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	\N	\N	\N	2.5	\N	\N	\N	\N	\N	\N	\N	5	7	t	\N
+36	8	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	\N	\N	\N	2.6	\N	\N	\N	\N	\N	\N	\N	6	8	t	\N
+37	9	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	\N	\N	\N	2.7	\N	\N	\N	\N	\N	\N	\N	6	9	t	\N
+38	10	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	\N	\N	\N	1.8	\N	\N	\N	\N	\N	\N	\N	6	10	t	\N
+39	11	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	\N	\N	\N	1.7	\N	\N	\N	\N	\N	\N	\N	6	11	t	\N
+40	12	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	\N	\N	\N	1.5	\N	\N	\N	\N	\N	\N	\N	6	12	t	\N
 \.
 
 
@@ -6877,7 +6949,7 @@ SELECT pg_catalog.setval('public.auth_permission_id_seq', 1, false);
 -- Name: auth_user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: dbasevisor
 --
 
-SELECT pg_catalog.setval('public.auth_user_id_seq', 1, true);
+SELECT pg_catalog.setval('public.auth_user_id_seq', 1, false);
 
 
 --
@@ -6996,7 +7068,7 @@ SELECT pg_catalog.setval('public.cor_schedule_id_seq', 1, false);
 -- Name: cor_student_registration_id_seq; Type: SEQUENCE SET; Schema: public; Owner: dbasevisor
 --
 
-SELECT pg_catalog.setval('public.cor_student_registration_id_seq', 1, false);
+SELECT pg_catalog.setval('public.cor_student_registration_id_seq', 1, true);
 
 
 --
@@ -7241,7 +7313,7 @@ SELECT pg_catalog.setval('public.questionnaire_results_id_seq', 1, false);
 -- Name: ref_academic_term_id_seq; Type: SEQUENCE SET; Schema: public; Owner: dbasevisor
 --
 
-SELECT pg_catalog.setval('public.ref_academic_term_id_seq', 1, true);
+SELECT pg_catalog.setval('public.ref_academic_term_id_seq', 1, false);
 
 
 --
@@ -7479,7 +7551,7 @@ SELECT pg_catalog.setval('public.student_assessment_id_seq', 1, false);
 -- Name: student_id_seq; Type: SEQUENCE SET; Schema: public; Owner: dbasevisor
 --
 
-SELECT pg_catalog.setval('public.student_id_seq', 5, true);
+SELECT pg_catalog.setval('public.student_id_seq', 2, true);
 
 
 --
@@ -7500,7 +7572,7 @@ SELECT pg_catalog.setval('public.student_monthly_family_income_id_seq', 1, false
 -- Name: student_profile_id_seq; Type: SEQUENCE SET; Schema: public; Owner: dbasevisor
 --
 
-SELECT pg_catalog.setval('public.student_profile_id_seq', 1, false);
+SELECT pg_catalog.setval('public.student_profile_id_seq', 2, true);
 
 
 --
@@ -7549,7 +7621,7 @@ SELECT pg_catalog.setval('public.studentuser_permission_id_seq', 1, false);
 -- Name: subject_list_id_seq; Type: SEQUENCE SET; Schema: public; Owner: dbasevisor
 --
 
-SELECT pg_catalog.setval('public.subject_list_id_seq', 1, false);
+SELECT pg_catalog.setval('public.subject_list_id_seq', 1, true);
 
 
 --
@@ -11737,13 +11809,6 @@ ALTER TABLE ONLY public.transaction_type
 
 ALTER TABLE ONLY public.transaction_type
     ADD CONSTRAINT transaction_type_modified_by_fkey FOREIGN KEY (modified_by) REFERENCES public.auth_user(id) ON DELETE CASCADE;
-
-
---
--- Name: SCHEMA public; Type: ACL; Schema: -; Owner: postgres
---
-
-GRANT ALL ON SCHEMA public TO dbasevisor;
 
 
 --
