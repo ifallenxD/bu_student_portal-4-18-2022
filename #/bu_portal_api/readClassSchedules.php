@@ -27,12 +27,14 @@ if ($stmt->rowCount() > 0) {
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         extract($row);
         $sched_item = array(
-            'course_title' => $course_title,
             'course_code' => $course_code,
-            'employee_name' => ucwords($employee_name),
-            'time' => explode(",", str_replace("\"", "", trim($time, "{}"))),
-            'day' => $sched->convertDay(explode(",", trim($day, "{}"))),
-            'academicterm_id' => $academicterm_id,
+            'course_title' => $course_title,
+            'employee' => $employee,
+            'room_code' => $room_code,
+            'day' => $sched->convertDay($day),
+            'start' => $start,
+            'end' => $end,
+            'academicterm_id' => $academicterm_id
         );
         array_push($sched_array, $sched_item);
     }

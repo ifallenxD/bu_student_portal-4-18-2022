@@ -27,8 +27,10 @@ class Grades
         $query = "
         select s.academicterm_id, r.school_year, r.semester, c.course_code, c.course_title, s.final_grade, s.is_posted
         FROM public." . $this->table_name . " s
+        left join course_schedule cs
+        on s.course_schedule_id = cs.id
         LEFT JOIN course c
-        ON s.course_id = c.id
+        ON cs.course_id = c.id
         LEFT JOIN ref_academic_term r
         ON s.academicterm_id = r.id
         WHERE s.student_id = :student_id

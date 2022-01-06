@@ -4,7 +4,7 @@ class Grades {
   String semester;
   String course_code;
   String course_title;
-  double final_grade;
+  String final_grade;
 
   Grades(this.academicterm_id, this.school_year, this.semester,
       this.course_code, this.course_title, this.final_grade);
@@ -13,18 +13,18 @@ class Grades {
       : academicterm_id = json['academicterm_id'],
         school_year = json['school_year'],
         semester = json['semester'],
-        course_code = json['course_code'],
-        course_title = json['course_title'],
-        final_grade = double.parse(json['final_grade'].toString());
+        course_code = json['course_code'] ?? 'n/a',
+        course_title = json['course_title'] ?? 'n/a',
+        final_grade = json['final_grade'];
 
   Map toJson() => {
-    'academicterm_id' : academicterm_id,
-    'school_year' : school_year,
-    'semester' : semester,
-    'course_code' : course_code,
-    'course_title' : course_title,
-    'final_grade' : final_grade,
-  };
+        'academicterm_id': academicterm_id,
+        'school_year': school_year,
+        'semester': semester,
+        'course_code': course_code,
+        'course_title': course_title,
+        'final_grade': final_grade,
+      };
 }
 
 class GradesList {
@@ -36,7 +36,7 @@ class GradesList {
 
   GradesList.fromJson(List<dynamic> json)
       : grades = json.map((e) => Grades.fromJson(e)).toList();
-    
+
   List toJson() => grades;
 }
 
@@ -52,12 +52,12 @@ class AcademicTerm {
       : academicterm_id = json['academicterm_id'],
         school_year = json['school_year'],
         semester = json['semester'];
-  
+
   Map toJson() => {
-    'academicterm_id' : academicterm_id,
-    'school_year' : school_year,
-    'semester' : semester,
-  };
+        'academicterm_id': academicterm_id,
+        'school_year': school_year,
+        'semester': semester,
+      };
 }
 
 class AcademicTermList {

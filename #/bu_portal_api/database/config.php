@@ -2,10 +2,10 @@
 class Database
 {
     // specify database credentials
-    private $host = 'localhost';
-    private $dbname = 'schooldb';
-    private $user = 'postgres';
-    private $password = 'pass';
+    private $host = '10.20.30.234';
+    private $dbname = 'database';
+    private $user = 'testuser';
+    private $password = '123456';
     public $conn;
 
     // get database connection

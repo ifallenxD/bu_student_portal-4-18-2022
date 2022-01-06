@@ -57,7 +57,7 @@ class CardSchedule extends StatelessWidget {
     for (int i = 0; i < schedule.time.length; i++) {
       timeDayWidgets.add(
         Text(
-          schedule.time[i] + ' - ' + schedule.day[i],
+          schedule.time[i] + ' | ' + schedule.day[i],
           style: const TextStyle(color: Colors.blueGrey),
         ),
       );

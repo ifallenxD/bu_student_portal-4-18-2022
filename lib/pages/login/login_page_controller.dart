@@ -14,8 +14,6 @@ class LoginPageManager {
   bool _isPasswordVisible = false;
   final loginButtonNotifier = ValueNotifier<ButtonState>(ButtonState.Idle);
 
-  
-
   TextEditingController get studentNoController => _studentNoController;
   TextEditingController get passwordController => _passwordController;
   bool get isPasswordVisible => _isPasswordVisible;
@@ -25,7 +23,6 @@ class LoginPageManager {
   }
 
   void login(context) async {
-
     String username = _studentNoController.text;
     String password = _passwordController.text;
 
@@ -36,8 +33,8 @@ class LoginPageManager {
         // var url = 'http://10.0.2.2/flutter_api/bu_portal2/student/login.php';
         var api = '/student/login.php';
         var data = {
-          'stud_num': username,
-          'stud_password': password,
+          'username': username,
+          'password': password,
         };
 
         String url;

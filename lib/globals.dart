@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 // Snackbar Key
-final GlobalKey<ScaffoldMessengerState> snackbarKey = GlobalKey<ScaffoldMessengerState>();
+final GlobalKey<ScaffoldMessengerState> snackbarKey =
+    GlobalKey<ScaffoldMessengerState>();
 
 // Colors
 Color primaryColor = Colors.blue.shade600;
@@ -21,3 +22,4 @@ bool IS_ONLINE = false;
 var BASE_URL = IS_ONLINE
     ? 'http://bucapstoneportal.mooo.com' // freedns
     : 'http://10.0.2.2/bu_portal_api'; // local
+    // : 'http://10.20.30.234';

@@ -3,7 +3,7 @@ class Student
 {
     // Database connection and table name
     private $conn;
-    private $table_name = 'student';
+    private $table_name = 'public.student_userinfo';
 
     // Object properties
     public $id;
@@ -25,6 +25,69 @@ class Student
     public function __construct($db)
     {
         $this->conn = $db;
+    }
+    
+    public function login()
+    {
+        $query = 'SELECT *
+                  FROM public.student_userinfo
+                  WHERE username = :username';
+
+        $stmt = $this->conn->prepare($query);
+
+        // $this->stud_num = htmlspecialchars(strip_tags($this->stud_num));
+        // $this->stud_password = htmlspecialchars(strip_tags($this->stud_password));
+
+        $stmt->bindParam(':username', $this->stud_num);
+        // validate password
+        if ($this->hashPassword()) {
+            $stmt->execute();
+            return $stmt;
+        } else {
+            $stmt = false;
+            return 0;
+        }
+        
+    }
+
+    private function hashPassword()
+    {
+        $storedPassword = $this->getStoredPassword();
+
+        if ($storedPassword) {
+            $split = explode('$', $storedPassword);
+            $digest_algo = explode(',', trim(str_replace('pbkdf2', '', $split[0]), '()'));
+            $iterations = $digest_algo[0];
+            $keylen = $digest_algo[1];
+            $algo = $digest_algo[2];
+            $salt = $split[1];
+            $hash = $split[2];
+
+            $hashedPassword = openssl_pbkdf2($this->stud_password, $salt, $keylen, $iterations, $algo);
+            $hashedPassword = bin2hex($hashedPassword);
+
+            return hash_equals($hash, $hashedPassword);
+        }
+        return false;
+    }
+
+    private function getStoredPassword()
+    {
+        $query = "
+        SELECT password FROM " . $this->table_name . " 
+        WHERE username = :username
+        LIMIT 1
+        ";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':username', $this->stud_num);
+        $stmt->execute();
+
+        if ($stmt->rowCount() != 0) {
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $result['password'];
+        }
+        return false;
     }
 
     public function read()
@@ -65,26 +128,6 @@ class Student
         } else {
             return false;
         }
-    }
-
-    public function login()
-    {
-        $query = 'SELECT *
-                  FROM public.student
-                  WHERE stud_num = :username
-                  AND stud_password = :password';
-
-        $stmt = $this->conn->prepare($query);
-
-        // $this->stud_num = htmlspecialchars(strip_tags($this->stud_num));
-        // $this->stud_password = htmlspecialchars(strip_tags($this->stud_password));
-
-        $stmt->bindParam(':username', $this->stud_num);
-        $stmt->bindParam(':password', $this->stud_password);
-
-        $stmt->execute();
-
-        return $stmt;
     }
 
 }

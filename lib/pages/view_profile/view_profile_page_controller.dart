@@ -78,11 +78,16 @@ class ViewProfilePageManager {
   String get fullname =>
       sp.stud_fname +
       ' ' +
-      sp.stud_mname.substring(0, 1) +
+      // sp.stud_mname.substring(0, 1) +
       '. ' +
       sp.stud_lname;
-  String get dateOfBirth =>
-      DateFormat.yMMMMd().format(DateTime.parse(sp.dateofbirth));
+  String get dateOfBirth {
+    if (sp.dateofbirth != 'n/a') {
+      return DateFormat.yMMMMd().format(DateTime.parse(sp.dateofbirth));
+    }
+    return sp.dateofbirth;
+  }
+
   String get gender => sp.gender;
   String get nationality => sp.studp_nationality;
   String get altEmail => sp.studp_alternate_email_address;
