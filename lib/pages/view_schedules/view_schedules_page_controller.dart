@@ -11,6 +11,7 @@ import 'package:http/http.dart' as http;
 class ViewSchedulesPageManager {
   var scheduleList = ValueNotifier<ScheduleList?>(null);
   var yearTermList = ValueNotifier<YearTermList?>(null);
+  var schedCardList = ValueNotifier<ScheduleCardList?>(null);
 
   final _storageService = getIt<StorageService>();
 
@@ -23,8 +24,11 @@ class ViewSchedulesPageManager {
       await _getYearTerms();
       await _getSchedules();
       if (scheduleList.value != null && yearTermList.value != null) {
-        await _storageService.setSchedules(jsonEncode(scheduleList.value!.toJson()));
-        await _storageService.setYearTerms(jsonEncode(yearTermList.value!.toJson()));
+        setupSchedules(yearTermList.value!, scheduleList.value!);
+        await _storageService
+            .setSchedules(jsonEncode(scheduleList.value!.toJson()));
+        await _storageService
+            .setYearTerms(jsonEncode(yearTermList.value!.toJson()));
       }
     } else {
       scheduleList.value = await _loadSchedules();
@@ -44,6 +48,34 @@ class ViewSchedulesPageManager {
     if (savedYearTerms == null) return null;
     var parsed = jsonDecode(savedYearTerms);
     return YearTermList.fromJson(parsed);
+  }
+
+  void setupSchedules(YearTermList ytl, ScheduleList sl) {
+    // setup weeks
+    schedCardList.value = ScheduleCardList([]);
+    var scl = schedCardList.value!.scheduleCards;
+
+    start:
+    for (Schedule s in sl.schedules) {
+      var sc = ScheduleCard();
+      if (scl.isNotEmpty) {
+        for (ScheduleCard scw in scl) {
+          if (s.course_code == scw.course_code) {
+            scw.schedules.add(s);
+            continue start;
+          }
+        }
+        sc.course_code = s.course_code;
+        sc.academicterm_id = s.academicterm_id;
+        sc.schedules.add(s);
+        scl.add(sc);
+      } else {
+        sc.course_code = s.course_code;
+        sc.academicterm_id = s.academicterm_id;
+        sc.schedules.add(s);
+        scl.add(sc);
+      }
+    }
   }
 
   Future<void> _getYearTerms() async {

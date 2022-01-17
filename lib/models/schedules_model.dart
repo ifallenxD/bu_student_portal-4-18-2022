@@ -1,28 +1,37 @@
 class Schedule {
-  String course_title;
   String course_code;
-  String employee_name;
-  List<dynamic> time;
-  List<dynamic> day;
+  String course_title;
+  String employee;
+  String room_code;
+  String day;
+  String start;
+  String end;
   int academicterm_id;
+  List<String>? time;
 
-  Schedule(this.course_title, this.course_code, this.employee_name, this.time,
-      this.day, this.academicterm_id);
+  Schedule(this.course_code, this.course_title, this.employee, this.room_code,
+      this.day, this.start, this.end, this.academicterm_id);
+
+  String get time2 => start + ' - ' + end;
 
   Schedule.fromJson(Map<String, dynamic> json)
-      : course_title = json['course_title'],
-        course_code = json['course_code'],
-        employee_name = json['employee_name'],
-        time = json['time'],
+      : course_code = json['course_code'],
+        course_title = json['course_title'],
+        employee = json['employee'],
+        room_code = json['room_code'],
         day = json['day'],
+        start = json['start'],
+        end = json['end'],
         academicterm_id = json['academicterm_id'];
 
   Map toJson() => {
-        'course_title': course_title,
         'course_code': course_code,
-        'employee_name': employee_name,
-        'time': time,
+        'course_title': course_title,
+        'employee': employee,
+        'room_code': room_code,
         'day': day,
+        'start': start,
+        'end': end,
         'academicterm_id': academicterm_id,
       };
 }
@@ -38,6 +47,23 @@ class ScheduleList {
       : schedules = json.map((e) => Schedule.fromJson(e)).toList();
 
   List toJson() => schedules;
+}
+
+class ScheduleCard {
+  String? course_code;
+  List<String>? day;
+  int? academicterm_id;
+  List<Schedule> schedules = [];
+  
+  ScheduleCard();
+}
+
+class ScheduleCardList {
+  List<ScheduleCard> scheduleCards;
+
+  ScheduleCardList(this.scheduleCards);
+
+  int get length => scheduleCards.length;
 }
 
 class YearTerm {

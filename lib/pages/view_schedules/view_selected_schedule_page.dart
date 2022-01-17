@@ -1,5 +1,7 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:bu_portal_app/globals.dart';
 import 'package:bu_portal_app/models/schedules_model.dart';
+import 'package:bu_portal_app/pages/home/home_page_controller.dart';
 import 'package:bu_portal_app/pages/view_schedules/view_schedules_page_controller.dart';
 import 'package:bu_portal_app/services/service_locator.dart';
 import 'package:flutter/material.dart';
@@ -20,13 +22,13 @@ class ViewSelectedSchedule extends StatelessWidget {
         elevation: 0,
       ),
       backgroundColor: colorCultured,
-      body: ValueListenableBuilder<ScheduleList?>(
-        valueListenable: stateManager.scheduleList,
+      body: ValueListenableBuilder<ScheduleCardList?>(
+        valueListenable: stateManager.schedCardList,
         builder: (_, schedules, __) {
-          var scd = schedules?.schedules;
+          var scd = schedules?.scheduleCards;
           return scd != null
               ? ListView.builder(
-                  physics: const ClampingScrollPhysics(),
+                  physics: const BouncingScrollPhysics(),
                   shrinkWrap: false,
                   itemCount: scd.length,
                   itemBuilder: (_, index) {
@@ -47,20 +49,69 @@ class ViewSelectedSchedule extends StatelessWidget {
 }
 
 class CardSchedule extends StatelessWidget {
-  final Schedule schedule;
+  final ScheduleCard schedule;
   CardSchedule({Key? key, required this.schedule}) : super(key: key);
 
-  final List<Widget> timeDayWidgets = [];
+  final List<Widget> dayWidgets = [];
+  final List<Widget> timeWidgets = [];
+  final List<Widget> roomWidgets = [];
+
+  var lastDay = '';
 
   @override
   Widget build(BuildContext context) {
-    for (int i = 0; i < schedule.time.length; i++) {
-      timeDayWidgets.add(
-        Text(
-          schedule.time[i] + ' | ' + schedule.day[i],
-          style: const TextStyle(color: Colors.blueGrey),
-        ),
-      );
+    for (int i = 0; i < schedule.schedules.length; i++) {
+      if (lastDay == schedule.schedules[i].day) {
+        dayWidgets.add(
+          const Text(
+            '',
+            style: TextStyle(color: Colors.black),
+          ),
+        );
+        timeWidgets.add(
+          Text(
+            schedule.schedules[i].time2,
+            style: const TextStyle(color: Colors.blueGrey),
+          ),
+        );
+        roomWidgets.add(
+          AutoSizeText(
+            schedule.schedules[i].room_code,
+            style: const TextStyle(color: Colors.blueGrey),
+            maxLines: 1,
+          ),
+        );
+      } else {
+        dayWidgets.add(
+          Text(
+            schedule.schedules[i].day,
+            style: const TextStyle(color: Colors.blueGrey),
+          ),
+        );
+        timeWidgets.add(
+          Text(
+            schedule.schedules[i].time2,
+            style: const TextStyle(color: Colors.blueGrey),
+          ),
+        );
+        roomWidgets.add(
+          AutoSizeText.rich(
+            TextSpan(
+              text: schedule.schedules[i].room_code,
+              style: const TextStyle(color: Colors.blueGrey),
+            ),
+            maxLines: 1,
+            minFontSize: 1,
+          ),
+        );
+      }
+      lastDay = schedule.schedules[i].day;
+      if (i + 1 != schedule.schedules.length &&
+          lastDay != schedule.schedules[i + 1].day) {
+        dayWidgets.add(const SizedBox(height: 6));
+        roomWidgets.add(const SizedBox(height: 6));
+        timeWidgets.add(const SizedBox(height: 6));
+      }
     }
 
     return Card(
@@ -77,18 +128,39 @@ class CardSchedule extends StatelessWidget {
                 color: Colors.blue,
               ),
               title: Text(
-                schedule.course_title,
+                schedule.schedules[0].course_title,
                 style: const TextStyle(color: Colors.deepOrange),
               ),
-              subtitle:
-                  Text(schedule.course_code + ' | ' + schedule.employee_name),
+              subtitle: Text(schedule.schedules[0].course_code +
+                  ' | ' +
+                  schedule.schedules[0].employee.capitalize()),
             ),
             const Divider(
               thickness: 1.0,
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: timeDayWidgets,
+            Padding(
+              padding: const EdgeInsets.all(4.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: dayWidgets,
+                  ),
+                  const VerticalDivider(),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: roomWidgets,
+                    ),
+                  ),
+                  const VerticalDivider(),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: timeWidgets,
+                  ),
+                ],
+              ),
             ),
           ],
         ),
