@@ -1,8 +1,13 @@
+import 'package:bu_portal_app/pages/login/login_page_controller.dart';
+import 'package:bu_portal_app/services/service_locator.dart';
 import 'package:flutter/material.dart';
 
 // Snackbar Key
 final GlobalKey<ScaffoldMessengerState> snackbarKey =
     GlobalKey<ScaffoldMessengerState>();
+
+// Get Remember Me State
+bool gRememberMe = getIt<LoginPageManager>().isRemember;
 
 // Colors
 Color primaryColor = Colors.blue.shade600;

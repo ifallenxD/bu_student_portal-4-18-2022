@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:bu_portal_app/globals.dart';
 import 'package:bu_portal_app/models/student_model.dart';
 import 'package:bu_portal_app/pages/landing_page.dart';
 import 'package:bu_portal_app/services/service_locator.dart';
@@ -16,7 +17,9 @@ class HomePageManager {
 
   void initialize(Student student) async {
     _currentStudent = student;
-    _storageService.setStudent(jsonEncode(_currentStudent!.toJson()));
+    if (gRememberMe) {
+      await _storageService.setStudent(jsonEncode(_currentStudent!.toJson()));
+    }
   }
 
   void logout(context) {

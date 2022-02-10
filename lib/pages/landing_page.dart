@@ -24,7 +24,10 @@ class _LandingPageState extends State<LandingPage> {
 
   Future<Student?> _init() async {
     final savedStudent = await _storageService.getStudent();
-    if (savedStudent == null) return null;
+    if (savedStudent == null) {
+      await _storageService.clearStorage();
+      return null;
+    }
     var parsedJson = json.decode(savedStudent);
     return Student.fromJson(parsedJson);
   }

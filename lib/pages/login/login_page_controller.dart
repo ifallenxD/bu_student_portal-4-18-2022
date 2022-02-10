@@ -12,14 +12,20 @@ class LoginPageManager {
   final TextEditingController _studentNoController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   bool _isPasswordVisible = false;
+  bool _rememberMe = false;
   final loginButtonNotifier = ValueNotifier<ButtonState>(ButtonState.Idle);
 
   TextEditingController get studentNoController => _studentNoController;
   TextEditingController get passwordController => _passwordController;
   bool get isPasswordVisible => _isPasswordVisible;
+  bool get isRemember => _rememberMe;
 
   void showPassword() {
     _isPasswordVisible = !_isPasswordVisible;
+  }
+
+  void toggleRememberMe() {
+    _rememberMe = !_rememberMe;
   }
 
   void login(context) async {

@@ -101,7 +101,7 @@ class _LoginPageState extends State<LoginPage> {
                 Padding(
                   padding: const EdgeInsets.all(16),
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
                         width: double.infinity,
@@ -127,7 +127,14 @@ class _LoginPageState extends State<LoginPage> {
                       const SizedBox(
                         height: 10,
                       ),
-                      const LoginButton(),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: const [
+                          RememberMeBox(),
+                          LoginButton(),
+                        ],
+                      ),
                     ],
                   ),
                 ),
@@ -136,6 +143,37 @@ class _LoginPageState extends State<LoginPage> {
           ],
         ),
       ),
+    );
+  }
+}
+
+class RememberMeBox extends StatefulWidget {
+  const RememberMeBox({Key? key}) : super(key: key);
+
+  @override
+  _RememberMeBoxState createState() => _RememberMeBoxState();
+}
+
+class _RememberMeBoxState extends State<RememberMeBox> {
+  final sm = getIt<LoginPageManager>();
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Checkbox(
+          activeColor: secondaryColor,
+          value: sm.isRemember,
+          onChanged: (bool? value) {
+            setState(() {
+              sm.toggleRememberMe();
+            });
+          },
+        ),
+        Text(
+          'Remember Me',
+          style: TextStyle(color: colorSpaceGray),
+        )
+      ],
     );
   }
 }

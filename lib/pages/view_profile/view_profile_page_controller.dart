@@ -78,7 +78,7 @@ class ViewProfilePageManager {
   String get fullname =>
       sp.stud_fname +
       ' ' +
-      // sp.stud_mname.substring(0, 1) +
+      sp.stud_mname.substring(0, 1) +
       '. ' +
       sp.stud_lname;
   String get dateOfBirth {
