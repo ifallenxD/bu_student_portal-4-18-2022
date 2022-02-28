@@ -5,12 +5,14 @@ abstract class StorageService {
   Future setGrades(String grades);
   Future setSchedules(String schedules);
   Future setYearTerms(String yearterms);
+  Future setLastUser(String lastuser);
   Future<String?> getStudent();
   Future<String?> getProfile();
   Future<String?> getAcademicTerms();
   Future<String?> getGrades();
   Future<String?> getSchedules();
   Future<String?> getYearTerms();
+  Future<String?> getLastUser();
   Future clearStudent();
   Future clearProfile();
   Future clearAcademicTerms();
@@ -18,4 +20,5 @@ abstract class StorageService {
   Future clearSchedules();
   Future clearStorage();
   Future clearYearTerms();
+  Future clearLastUser();
 }

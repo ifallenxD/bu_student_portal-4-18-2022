@@ -1,7 +1,6 @@
 import 'package:bu_portal_app/pages/login/login_page_controller.dart';
 import 'package:bu_portal_app/pages/login/widgets/textfields.dart';
 import 'package:bu_portal_app/services/service_locator.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:bu_portal_app/globals.dart';
 
@@ -17,6 +16,7 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   void initState() {
+    stateManager.init();
     super.initState();
   }
 

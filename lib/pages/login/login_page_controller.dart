@@ -4,6 +4,8 @@ import 'dart:io';
 import 'package:bu_portal_app/globals.dart';
 import 'package:bu_portal_app/pages/home/home_page.dart';
 import 'package:bu_portal_app/pages/login/widgets/snackbar.dart';
+import 'package:bu_portal_app/services/service_locator.dart';
+import 'package:bu_portal_app/services/storage_service/storage_service.dart';
 import 'package:flutter/material.dart';
 import 'package:bu_portal_app/models/student_model.dart';
 import 'package:http/http.dart' as http;
@@ -19,6 +21,13 @@ class LoginPageManager {
   TextEditingController get passwordController => _passwordController;
   bool get isPasswordVisible => _isPasswordVisible;
   bool get isRemember => _rememberMe;
+
+  void init() async {
+    final _storageService = getIt<StorageService>();
+    final lastUser = await _storageService.getLastUser();
+    if (lastUser == null) return;
+    _studentNoController.text = lastUser;
+  }
 
   void showPassword() {
     _isPasswordVisible = !_isPasswordVisible;
@@ -63,6 +72,7 @@ class LoginPageManager {
         final Map<String, dynamic> parsed = jsonDecode(response.body);
 
         if (response.statusCode == 200) {
+          saveLastUser(_studentNoController.text);
           _studentNoController.clear();
           _passwordController.clear();
           _isPasswordVisible = false;
@@ -153,6 +163,11 @@ class LoginPageManager {
       );
     }
     loginButtonNotifier.value = ButtonState.Idle;
+  }
+
+  saveLastUser(String lastuser) async {
+    final _storageService = getIt<StorageService>();
+    _storageService.setLastUser(lastuser);
   }
 }
 

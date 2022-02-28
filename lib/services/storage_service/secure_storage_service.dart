@@ -10,6 +10,7 @@ class SecureStorage extends StorageService {
   static const _gradesKey = 'grades';
   static const _schedulesKey = 'schedules';
   static const _yearTermsKey = 'yearterms';
+  static const _lastUser = 'lastuser';
 
   @override
   Future setStudent(String student) async {
@@ -39,6 +40,11 @@ class SecureStorage extends StorageService {
   @override
   Future setYearTerms(String yearterms) async {
     await _storage.write(key: _yearTermsKey, value: yearterms);
+  }
+
+  @override
+  Future setLastUser(String lastuser) async {
+    await _storage.write(key: _lastUser, value: lastuser);
   }
 
   @override
@@ -72,6 +78,11 @@ class SecureStorage extends StorageService {
   }
 
   @override
+  Future<String?> getLastUser() async {
+    return await _storage.read(key: _lastUser);
+  }
+
+  @override
   Future clearStudent() async {
     await _storage.delete(key: _studentKey);
   }
@@ -99,6 +110,11 @@ class SecureStorage extends StorageService {
   @override
   Future clearYearTerms() async {
     await _storage.delete(key: _yearTermsKey);
+  }
+
+  @override
+  Future clearLastUser() async {
+    await _storage.delete(key: _lastUser);
   }
 
   @override
