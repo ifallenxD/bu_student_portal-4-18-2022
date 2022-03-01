@@ -2,9 +2,20 @@ import 'package:bu_portal_app/pages/login/login_page_controller.dart';
 import 'package:bu_portal_app/services/service_locator.dart';
 import 'package:flutter/material.dart';
 
-// Snackbar Key
-final GlobalKey<ScaffoldMessengerState> snackbarKey =
-    GlobalKey<ScaffoldMessengerState>();
+// AppBar
+Widget titleAppBar() {
+  return Row(
+    mainAxisSize: MainAxisSize.min,
+    children: [
+      Image.asset(
+        'assets/images/bicol_university_logo.png',
+        fit: BoxFit.contain,
+        height: 32,
+      ),
+      const Text(' Bicol University'),
+    ],
+  );
+}
 
 // Get Remember Me State
 bool gRememberMe = getIt<LoginPageManager>().isRemember;

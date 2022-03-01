@@ -36,7 +36,7 @@ class _ViewProfilePageState extends State<ViewProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Profile'),
+        title: titleAppBar(),
         centerTitle: true,
         elevation: 0,
       ),

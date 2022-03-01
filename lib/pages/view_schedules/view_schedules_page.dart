@@ -30,7 +30,7 @@ class _ViewSchedulesPageState extends State<ViewSchedulesPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Schedules'),
+        title: titleAppBar(),
         centerTitle: true,
         elevation: 0,
       ),

@@ -30,7 +30,7 @@ class _ViewGradesPageState extends State<ViewGradesPage> {
     final sm = getIt<ViewGradesPageManager>();
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Grades'),
+        title: titleAppBar(),
         centerTitle: true,
         elevation: 0,
       ),

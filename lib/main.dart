@@ -1,7 +1,4 @@
-// import 'package:bu_portal_app/pages/home/home_page.dart';
-import 'package:bu_portal_app/globals.dart';
 import 'package:bu_portal_app/pages/landing_page.dart';
-// import 'package:bu_portal_app/pages/login/login_page.dart';
 import 'package:bu_portal_app/services/service_locator.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +15,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      scaffoldMessengerKey: snackbarKey,
       title: 'Bicol University Student Portal',
       theme: ThemeData(
         primarySwatch: Colors.blue,
