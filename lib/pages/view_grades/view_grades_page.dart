@@ -42,6 +42,38 @@ class _ViewGradesPageState extends State<ViewGradesPage> {
           return at != null
               ? CustomScrollView(
                   slivers: [
+                    SliverToBoxAdapter(
+                      child: Padding(
+                        padding: const EdgeInsets.only(bottom: 8),
+                        child: Card(
+                          margin: const EdgeInsets.all(0),
+                          elevation: 2.5,
+                          color: colorCultured,
+                          child: Align(
+                            alignment: Alignment.center,
+                            child: Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: const [
+                                  /* Icon(Icons.list, size: 30.0),
+                                  VerticalDivider(
+                                    width: 4.0,
+                                  ), */
+                                  Text(
+                                    'GRADES',
+                                    style: TextStyle(
+                                        color: Color.fromARGB(255, 63, 63, 63),
+                                        fontSize: 20.0,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
                     SliverList(
                       delegate: SliverChildBuilderDelegate(
                           (BuildContext context, int index) {
@@ -80,7 +112,7 @@ class _ViewGradesPageState extends State<ViewGradesPage> {
                                                 Text(
                                                   currentGrade.course_code,
                                                   style: TextStyle(
-                                                    color: colorSpaceGray,
+                                                    color: secondaryColor,
                                                     fontSize: 11.0,
                                                     fontWeight: FontWeight.bold,
                                                   ),
@@ -107,9 +139,10 @@ class _ViewGradesPageState extends State<ViewGradesPage> {
                                                 MainAxisAlignment.center,
                                             children: [
                                               Text(
-                                                '${currentGrade.final_grade}',
-                                                style: const TextStyle(
-                                                  color: Colors.deepOrange,
+                                                currentGrade.final_grade,
+                                                style: TextStyle(
+                                                  color: colorGrades(
+                                                      currentGrade.final_grade),
                                                   fontSize: 14.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
@@ -135,5 +168,18 @@ class _ViewGradesPageState extends State<ViewGradesPage> {
         },
       ),
     );
+  }
+
+  colorGrades(String grade) {
+    if (grade != "INC") {
+      double parsedGrade = double.parse(grade);
+      if (parsedGrade <= 3.0) {
+        return Colors.green;
+      } else if (parsedGrade == 5.0) {
+        return Colors.red;
+      }
+    } else {
+      return Colors.deepOrange;
+    }
   }
 }

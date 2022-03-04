@@ -42,6 +42,38 @@ class _ViewSchedulesPageState extends State<ViewSchedulesPage> {
           return yt != null
               ? CustomScrollView(
                   slivers: [
+                    SliverToBoxAdapter(
+                      child: Padding(
+                        padding: const EdgeInsets.only(bottom: 8),
+                        child: Card(
+                          margin: const EdgeInsets.all(0),
+                          elevation: 2.5,
+                          color: colorCultured,
+                          child: Align(
+                            alignment: Alignment.center,
+                            child: Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: const [
+                                  /* Icon(Icons.schedule, size: 30.0),
+                                  VerticalDivider(
+                                    width: 4.0,
+                                  ), */
+                                  Text(
+                                    'SCHEDULES',
+                                    style: TextStyle(
+                                        color: Color.fromARGB(255, 63, 63, 63),
+                                        fontSize: 20.0,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
                     SliverList(
                       delegate: SliverChildBuilderDelegate(
                           (BuildContext context, int index) {

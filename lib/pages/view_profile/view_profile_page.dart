@@ -72,6 +72,36 @@ class ProfileBuilder extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
+          padding: const EdgeInsets.only(bottom: 8),
+          child: Card(
+            margin: const EdgeInsets.all(0),
+            elevation: 2.5,
+            color: colorCultured,
+            child: Align(
+              alignment: Alignment.center,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: const [
+                    /* Icon(Icons.person, size: 33.0),
+                    VerticalDivider(
+                      width: 4.0,
+                    ), */
+                    Text(
+                      'PROFILE',
+                      style: TextStyle(
+                          color: Color.fromARGB(255, 63, 63, 63),
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+        Padding(
           padding: const EdgeInsets.only(top: 10.0, left: 10.0),
           child: RichText(
             text: TextSpan(
