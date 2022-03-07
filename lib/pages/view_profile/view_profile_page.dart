@@ -80,7 +80,7 @@ class ProfileBuilder extends StatelessWidget {
             child: Align(
               alignment: Alignment.center,
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(16.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: const [

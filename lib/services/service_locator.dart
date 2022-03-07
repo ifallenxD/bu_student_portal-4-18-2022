@@ -35,6 +35,7 @@ void clearGetIt() {
 }
 
 Future<InternetState> checkInternetConnection() async {
+  return InternetState.connected;
   try {
     final result = await InternetAddress.lookup('example.com');
     if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
