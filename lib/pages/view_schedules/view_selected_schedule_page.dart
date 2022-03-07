@@ -65,19 +65,21 @@ class CardSchedule extends StatelessWidget {
         dayWidgets.add(
           const Text(
             '',
-            style: TextStyle(color: Colors.black),
+            style: TextStyle(color: Colors.black, fontWeight: FontWeight.w300),
           ),
         );
         timeWidgets.add(
           Text(
             schedule.schedules[i].time2,
-            style: const TextStyle(color: Colors.blueGrey),
+            style: const TextStyle(
+                color: Colors.black, fontWeight: FontWeight.w300),
           ),
         );
         roomWidgets.add(
           AutoSizeText(
             schedule.schedules[i].room_code,
-            style: const TextStyle(color: Colors.blueGrey),
+            style: const TextStyle(
+                color: Colors.black, fontWeight: FontWeight.w300),
             maxLines: 1,
           ),
         );
@@ -85,20 +87,23 @@ class CardSchedule extends StatelessWidget {
         dayWidgets.add(
           Text(
             schedule.schedules[i].day,
-            style: const TextStyle(color: Colors.blueGrey),
+            style: const TextStyle(
+                color: Colors.black, fontWeight: FontWeight.w300),
           ),
         );
         timeWidgets.add(
           Text(
             schedule.schedules[i].time2,
-            style: const TextStyle(color: Colors.blueGrey),
+            style: const TextStyle(
+                color: Colors.black, fontWeight: FontWeight.w300),
           ),
         );
         roomWidgets.add(
           AutoSizeText.rich(
             TextSpan(
               text: schedule.schedules[i].room_code,
-              style: const TextStyle(color: Colors.blueGrey),
+              style: const TextStyle(
+                  color: Colors.black, fontWeight: FontWeight.w300),
             ),
             maxLines: 1,
             minFontSize: 1,

@@ -29,6 +29,11 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: titleAppBar(),
+        centerTitle: true,
+        elevation: 0,
+      ),
       backgroundColor: colorCultured,
       body: SafeArea(
         child: Container(

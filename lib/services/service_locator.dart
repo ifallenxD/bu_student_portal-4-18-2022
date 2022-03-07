@@ -14,9 +14,12 @@ void setupGetIt() {
   // state management layer
   getIt.registerLazySingleton<LoginPageManager>(() => LoginPageManager());
   getIt.registerLazySingleton<HomePageManager>(() => HomePageManager());
-  getIt.registerLazySingleton<ViewProfilePageManager>(() => ViewProfilePageManager());
-  getIt.registerLazySingleton<ViewGradesPageManager>(() => ViewGradesPageManager());
-  getIt.registerLazySingleton<ViewSchedulesPageManager>(() => ViewSchedulesPageManager());
+  getIt.registerLazySingleton<ViewProfilePageManager>(
+      () => ViewProfilePageManager());
+  getIt.registerLazySingleton<ViewGradesPageManager>(
+      () => ViewGradesPageManager());
+  getIt.registerLazySingleton<ViewSchedulesPageManager>(
+      () => ViewSchedulesPageManager());
 
   // service layer
   getIt.registerLazySingleton<StorageService>(() => SecureStorage());
@@ -28,20 +31,20 @@ void clearGetIt() {
   getIt.resetLazySingleton<ViewProfilePageManager>();
   getIt.resetLazySingleton<ViewGradesPageManager>();
   getIt.resetLazySingleton<ViewSchedulesPageManager>();
-  getIt.resetLazySingleton<StorageService>();  
+  getIt.resetLazySingleton<StorageService>();
 }
 
 Future<InternetState> checkInternetConnection() async {
-    try {
-      final result = await InternetAddress.lookup('example.com');
-      if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
-        return InternetState.connected;
-      }
-    } on SocketException {
-      // debugPrint('Not connected to the internet.\nMore info: ${e.message}');
-      return InternetState.disconnected;
+  try {
+    final result = await InternetAddress.lookup('example.com');
+    if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
+      return InternetState.connected;
     }
+  } on SocketException {
+    // debugPrint('Not connected to the internet.\nMore info: ${e.message}');
     return InternetState.disconnected;
   }
+  return InternetState.disconnected;
+}
 
 enum InternetState { connected, disconnected }

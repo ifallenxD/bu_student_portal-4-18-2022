@@ -75,12 +75,17 @@ class ViewProfilePageManager {
   StudentProfile get sp => studentProfile.value!;
 
   String get studentNumber => sp.stud_num;
-  String get fullname =>
-      sp.stud_fname +
-      ' ' +
-      sp.stud_mname.substring(0, 1) +
-      '. ' +
-      sp.stud_lname;
+  String get fname => sp.stud_fname + ' ';
+  String get minit {
+    if (sp.stud_mname == '') {
+      return '';
+    } else {
+      return sp.stud_mname.substring(0, 1) + '. ';
+    }
+  }
+
+  String get lname => sp.stud_lname;
+  String get fullname => fname + minit + lname;
   String get dateOfBirth {
     if (sp.dateofbirth != 'n/a') {
       return DateFormat.yMMMMd().format(DateTime.parse(sp.dateofbirth));

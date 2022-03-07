@@ -118,7 +118,7 @@ class ProfileBuilder extends StatelessWidget {
           children: [
             Expanded(
               child: ListTile(
-                title: AutoSizeText(sm.fullname, style: _title, maxLines: 1),
+                title: AutoSizeText(sm.fullname, style: _title, maxLines: 2),
                 subtitle: Text('NAME', style: _subtitle),
                 dense: true,
               ),
@@ -137,7 +137,7 @@ class ProfileBuilder extends StatelessWidget {
           children: [
             Expanded(
               child: ListTile(
-                title: AutoSizeText(sm.dateOfBirth, style: _title, maxLines: 1),
+                title: AutoSizeText(sm.dateOfBirth, style: _title, maxLines: 2),
                 subtitle: Text('DATE OF BIRTH', style: _subtitle),
                 dense: true,
               ),
@@ -200,7 +200,7 @@ class ProfileBuilder extends StatelessWidget {
           children: [
             Expanded(
               child: ListTile(
-                title: AutoSizeText(sm.altEmail, style: _title, maxLines: 1),
+                title: AutoSizeText(sm.altEmail, style: _title, maxLines: 2),
                 subtitle: Text('PERSONAL EMAIL', style: _subtitle),
                 dense: true,
               ),
