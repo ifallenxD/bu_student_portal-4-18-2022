@@ -34,8 +34,8 @@ Color shadowColor = const Color(0x36000000);
 TextStyle fontSize16 = const TextStyle(fontSize: 16);
 
 // URL
-bool IS_ONLINE = false;
+bool IS_ONLINE = true;
 var BASE_URL = IS_ONLINE
-    ? 'http://bucapstoneportal.mooo.com' // freedns
+    ? 'http://bucapstoneportal1.mooo.com' // freedns
     : 'http://10.0.2.2/bu_portal_api'; // local
     // : 'http://10.20.30.234';
